@@ -1,1 +1,10 @@
-.DS_Store
+# Ignore node_modules in any nested subfolder inside week-*
+week-*/**/node_modules/
+
+# Ignore .env inside week-4/hard/ specifically
+week-4/hard/.env
+
+# Ignore build output inside week-4/middlewares/
+week-4/middlewares/dist/
+node_modules/
+**/node_modules/

@@ -1,5 +1,21 @@
-function userMiddleware(req, res, next) {
-    // Implement user auth logic
-}
+import jwt from "jsonwebtoken"
 
-module.exports = userMiddleware;
+export function userMiddleware(req, res, next) {
+
+    const token=req.header;
+    const isauth=jwt.verify(token,process.env.JWT_SCREAT);
+    if(isauth){
+        req.user=jwt.decode(token,process.env.JWT_SCREAT)
+        next();
+
+    }
+    else{
+        res.status(301).json({
+         message:"unauthized acess",
+        })
+    }
+
+    
+    
+    
+}

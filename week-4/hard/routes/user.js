@@ -1,9 +1,15 @@
-const { Router } = require("express");
-const router = Router();
-const userMiddleware = require("../middleware/user");
+import { Router } from "express";
+import jwt from "jsonwebtoken";
+import { userMiddleware } from "../middleware/user";
+import{z} from "zod"
 
+const router = Router();
 // User Routes
+const user=z.object({
+    username:z.string(),
+})
 router.post('/signup', (req, res) => {
+
     // Implement user signup logic
 });
 
